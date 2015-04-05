@@ -1,0 +1,9 @@
+name = Test 5
+num_nodes = 4
+num_rounds = 6
+tasks_per_rounds = 5,2,10,15,7
+input_data = RANDOM
+output_data = SAME_AS_INPUT
+delay = 0.25
+
+timeout = 200

@@ -1,0 +1,9 @@
+name = Test 8
+num_nodes = 20
+num_rounds = 2
+tasks_per_rounds = 200, 200
+input_data = RANDOM
+output_data = SAME_LOC
+delay = 1
+
+timeout = 100

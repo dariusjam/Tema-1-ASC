@@ -1,0 +1,8 @@
+name = Test 9
+num_nodes = 20
+num_rounds = 15
+tasks_per_rounds = 15,15,15,15,15,15,15,15,15,15,15,15,15,15,15
+input_data = RANDOM
+output_data = RANDOM
+
+timeout = 35

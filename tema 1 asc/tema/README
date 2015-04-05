@@ -1,0 +1,26 @@
+Mangea Liviu Darius 334CA
+Tema 1 ASC
+
+In implementare am folosit un lock si o bariera pentru sincronizare,
+pe care le trimit din nodul cu id 0 in celelalte noduri in functia
+set_cluster_info care la randul ei apeleaza functia receive din
+celelalte noduri pentru a distribui lockul si bariera.
+
+In functia schedule_task creez threadurile si daca sunt mai putin
+de 16 active, threadul nou creat va fi pornit si adaugat in
+thread_list, altfel doar va fi adaugat in thread_wait pentru a fi
+pornit dupa ce alte threaduri au terminat.
+
+In clasa MyThread, mai precis metoda run, ma folosesc de cateva
+liste pentru a prelua datele de la nodurile indicate in in_slices
+si apoi pentru a trimite doar datele necesare in nodurile indicate
+in out_slices. Pentru a trimite datele apelez functia send_data din
+nodurile unde vreau sa trimit iar acolo, in vectorul partial_data
+sunt adunate elementele, in interiorul unui lock, pentru a nu incerca
+mai multe threaduri sa scrie in acelasi timp in lista partial_data.
+
+In functia sync_results am un while in care fac join threadurilor si
+le dau start celor care sunt in asteptare. Dupa while urmeaza bariera
+pentru a astepta toate nodurile sa ajunga la finalul rundei. Dupa
+bariera se updateaza vectorul de date si se poate trece la runda
+urmatoare.

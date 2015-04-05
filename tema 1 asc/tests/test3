@@ -1,0 +1,9 @@
+name = Test 3
+num_nodes = 4
+num_rounds = 5
+tasks_per_rounds = 2,3,6,4,9
+input_data = LEFT
+output_data = RIGHT
+delay = 0.5
+
+timeout = 120
